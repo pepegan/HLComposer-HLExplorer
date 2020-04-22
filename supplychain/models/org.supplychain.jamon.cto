@@ -1,0 +1,48 @@
+namespace org.supplychain.jamon
+
+abstract participant Individuo identified by id {
+  o String id
+  o String nombre
+  o String email regex=/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/ 
+  o String telefono regex=/^(\+[0-9]{2,3})([0-9]{9})$/ 
+  o Direccion direccion 
+}
+
+concept Direccion {
+  o String lineaDireccion1
+  o String lineaDireccion2
+  o String localidad
+  o String codigoPostal regex=/^([0-9]{5})$/ 
+}
+
+participant Ganadero extends Individuo {
+  o String numeroLicencia
+}
+
+participant PropietarioRestaurante extends Individuo {
+  o String nombreRestaurante
+}
+
+asset Jamon identified by jamonId {
+  o String jamonId
+  o Integer peso range=[2, 10]
+  o ColorBridaJamon estatus_brida default="BLANCA"
+  o DateTime tiempoCuracion
+  --> Individuo propietario
+}
+
+enum ColorBridaJamon {
+  o NEGRA
+  o ROJA
+  o VERDE
+  o BLANCA
+}
+
+transaction VenderJamon  {
+  --> Jamon jamonId
+  --> PropietarioRestaurante propietarioRestaurante
+}
+
+event VentaDeJamon {
+ o String detail 
+}

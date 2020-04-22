@@ -1,0 +1,5 @@
+query selectJamon {
+  description: "Lista de jamones"
+  statement:
+    SELECT org.supplychain.jamon.Jamon
+}
