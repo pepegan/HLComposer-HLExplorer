@@ -4,7 +4,7 @@ Despliegue del HyperledgerExplorer en HyperledgerComposer
 En la instalacion de fabric 1.2.1 en vez de ejecturar ./startFabric.sh se ha ejectuado manualmente 
 
 * Inicio de la red de fabric
-* Incio del canal composercahnnel
+* Incio del canal composerchannel
 
 ```
 cd fabric-dev-servers/fabric-scripts/hlfv12/composer/
@@ -18,7 +18,7 @@ docker exec -e "CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/Admin@org1.ex
 
 ```
 
-En la instalacion del explorer
+En la instalacion del explorer version 0.3.7
 
 * El contenido e examples/supplychain/crypto es el mismo que fabric-dev-servers/fabric-scripts/hlfv12/composer/crypto-config
 * Inicio de Hyperledger Explorer con /deploy_explorer.sh + directorio del proyecto + la red docker que levanta fabric
